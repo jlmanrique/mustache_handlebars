@@ -1,7 +1,11 @@
 (function($){
 
-	$('#plantilla').val($('#plantilla-script').html());
-	$('#json').val($('#json-script').html());
+	var completar = function(paso){
+		$('#plantilla').val($('#plantilla-'+paso).html());
+		$('#json').val($('#json-'+paso).html());
+	}
+
+	completar(1);
 
 	$('#procesar').click(function(){
 
@@ -12,6 +16,10 @@
 		} catch(e){
 			alert(e);
 		}
+	});
+
+	$('.paso').click(function(){
+		completar($(this).attr('data-paso'));
 	});
 
 })(jQuery);

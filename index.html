@@ -47,7 +47,12 @@
 		<div class="col-md-3 column">
 			<div class="list-group">
 				<a class="list-group-item active">Pasos</a>
-				<a class="list-group-item">Carga de plantillas</a>
+				<a class="list-group-item paso" data-paso="1">Carga de plantillas</a>
+				<a class="list-group-item paso" data-paso="2">Variables</a>
+				<a class="list-group-item paso" data-paso="3">Secciones</a>
+				<a class="list-group-item paso" data-paso="4">Listas</a>
+				<a class="list-group-item paso" data-paso="5">Secciones Invertidas</a>
+				<a class="list-group-item paso" data-paso="6">Comentarios</a>
 			</div>
 		</div>
 		<div class="col-md-9 column">
@@ -82,16 +87,85 @@
 	</div>
 </div>
 
-<script id="json-script" type="x-tmpl-mustache">
+<script id="json-1" type="x-tmpl-mustache">
 {
 	"pais":"Brasil",
 	"anho": 2014
 }
 </script>
 
-<script id="plantilla-script" type="x-tmpl-mustache">
+<script id="plantilla-1" type="x-tmpl-mustache">
 Mundial {{pais}} {{anho}}! 
 </script>
+
+<script id="json-2" type="x-tmpl-mustache">
+{
+	"equipo1":"Alemania",
+	"equipo2": "Argentina"
+}
+</script>
+
+<script id="plantilla-2" type="x-tmpl-mustache">
+Final {{equipo1}} vs {{equipo2}}
+<br>
+Final {{{equipo1}}} vs {{{equipo2}}}
+<br>
+Final {{&equipo1}} vs {{&equipo2}}
+
+</script>
+
+<script id="json-3" type="x-tmpl-mustache">
+{
+	"jugador": { 
+		"nombre": "Arjen Robben",
+		"edad" : 30,
+		"equipo": "Holanda"
+	}
+}
+</script>
+
+<script id="plantilla-3" type="x-tmpl-mustache">
+Jugador: 
+<ul>
+	<li>{{#jugador}}{{nombre}} tiene {{edad}} juega para {{equipo}} {{/jugador}} </li>
+</ul>
+</script>
+
+<script id="json-4" type="x-tmpl-mustache">
+{
+	"mundiales":[ "Alemania 2006","Sudafrica 2010", "Brasil 2014" ]
+}
+</script>
+
+<script id="plantilla-4" type="x-tmpl-mustache">
+Ultimos mundiales:
+<ol>
+  {{#mundiales}}
+  <li>{{.}}</li>
+  {{/mundiales}}
+</ol>
+</script>
+
+<script id="json-5" type="x-tmpl-mustache">
+{
+	"brasil": false
+}
+</script>
+
+<script id="plantilla-5" type="x-tmpl-mustache">
+Brasil {{#brasil}}va a la final :){{/brasil}}{{^brasil}}no va a la final :({{/brasil}}
+</script>
+
+<script id="json-6" type="x-tmpl-mustache">
+{
+	
+}
+</script>
+
+<script id="plantilla-6" type="x-tmpl-mustache">
+Mundial {{! Este es un comentario }} {{anho}}! 
+</script>
+
 
 <script type="text/javascript" src="js/scripts.js"></script>
 
